@@ -16,9 +16,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 const corsOptions = {
-  origin: process.env.ORIGIN_URL,
+  origin: ["https://job-portal-sg9n.vercel.app", "http://localhost:3000"], // Add allowed origins
   credentials: true,
 };
+app.use(cors(corsOptions));
 app.use(cors(corsOptions));
 //api
 app.use("/api/v1/user", userRoute);
